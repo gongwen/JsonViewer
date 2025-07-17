@@ -1,8 +1,18 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    /**
+     * 仓库信息
+     */
+    ext.maven = [
+            url     : "${maven_url}",
+            username: "${daisy_username}",
+            password: "${daisy_password}",
+    ]
+
     ext.kotlin_version = '1.4.31'
     ext.epoxy_version = '4.4.2'
+
     repositories {
         google()
         jcenter()

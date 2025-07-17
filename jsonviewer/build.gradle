@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 30
@@ -59,4 +60,35 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+// ./gradlew jsonviewer:publish
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = "com.github.BillCarsonFr"
+                artifactId = "JsonViewer"
+                version = "0.6.1"
+                artifact generateSourcesJar
+            }
+        }
+
+        repositories {
+            maven {
+                url = "$maven.url"
+                credentials {
+                    username = "$maven.username"
+                    password = "$maven.password"
+                }
+                allowInsecureProtocol = true
+            }
+        }
+    }
 }
