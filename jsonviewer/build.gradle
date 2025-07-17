@@ -43,8 +43,13 @@ dependencies {
     implementation "com.airbnb.android:epoxy:$epoxy_version"
     kapt "com.airbnb.android:epoxy-processor:$epoxy_version"
     implementation 'com.airbnb.android:mvrx:1.5.1'
+
     // Span utils
-    implementation 'me.gujun.android:span:1.7'
+    // implementation 'me.gujun.android:span:1.7'
+    // me.gujun.android:span的依赖 Start
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:support-annotations:27.0.2'
+    // me.gujun.android:span的依赖 End
     implementation 'com.google.android.material:material:1.4.0-alpha01'
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"

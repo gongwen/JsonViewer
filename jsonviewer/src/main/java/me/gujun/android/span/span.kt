@@ -2,8 +2,6 @@ package me.gujun.android.span
 
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.support.annotation.ColorInt
-import android.support.annotation.Dimension
 import android.text.Layout
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -20,6 +18,8 @@ import android.text.style.SuperscriptSpan
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
 import android.view.View
+import androidx.annotation.ColorInt
+import androidx.annotation.Dimension
 import me.gujun.android.span.style.CustomTypefaceSpan
 import me.gujun.android.span.style.LineSpacingSpan
 import me.gujun.android.span.style.SimpleClickableSpan
